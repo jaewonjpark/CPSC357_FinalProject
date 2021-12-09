@@ -15,48 +15,70 @@ struct MainApp: View {
         VStack {
             Text("Welcome \(username)")
                 .font(.largeTitle)
+            
             NavigationView {
-                //List of expense items
-                VStack (spacing: 0) {
-                    
-                    List {
-                        Text("Expenses")
-                            .font(.title2)
-                        ForEach (itemStore.expenses) { expense in
-                            ListCell(item: expense)
-                        }
-                        .onDelete(perform: deleteExpenses)
-                        .onMove(perform: moveExpenses)
-                        
-                    }
-                    Text("Total Expenses: - $\(String(sumItemAmounts(itemStore.expenses)))")
-                    
-                }
-                
-            }
-            NavigationView {
-                //List for income items
                 VStack {
-                    
-                    List {
-                        Text("Incomes")
-                            .font(.title2)
-                        ForEach (itemStore.incomes) { income in
-                            ListCell(item: income)
+                   
+                   
+                        //List of expense items
+                        VStack (spacing: 0) {
+                            
+                            List {
+                                Text("Expenses")
+                                    .font(.title2)
+                                ForEach (itemStore.expenses) { expense in
+                                    ListCell(item: expense)
+                                }
+                                .onDelete(perform: deleteExpenses)
+                                .onMove(perform: moveExpenses)
+                                
+                            }
+                            Text("Total Expenses: - $\(String(sumItemAmounts(itemStore.expenses)))")
+                            
                         }
-                        .onDelete(perform: deleteIncomes)
-                        .onMove(perform: moveIncomes)
-                    }
-                    Text("Total Expenses: + $\(String(sumItemAmounts(itemStore.incomes)))")
+                        
+                    
+                   
+                        //List for income items
+                        VStack {
+                            
+                            List {
+                                Text("Incomes")
+                                    .font(.title2)
+                                ForEach (itemStore.incomes) { income in
+                                    ListCell(item: income)
+                                }
+                                .onDelete(perform: deleteIncomes)
+                                .onMove(perform: moveIncomes)
+                            }
+                            Text("Total Expenses: + $\(String(sumItemAmounts(itemStore.incomes)))")
+                        }
+                        
+                    
+                    
+                    
+                    
+                    
                 }
                 
             }
+     
+            .navigationBarItems(leading: NavigationLink(destination: ContentView()) {
+            Text("Add")
+                    .padding()
+                    .center
+            .foregroundColor(.white)
+            .background(Color.green)
+            .cornerRadius(10)
             
             
-            
+            }, trailing: EditButton()
+                                    .padding()
+                                    .foregroundColor(.blue)            )
+
             
         }
-        
+       
     }
     func sumItemAmounts (_ array: [Item]) -> Float {
         var sum: Float = 0
@@ -86,6 +108,16 @@ struct MainApp: View {
         print("\(itemStore.expenses)")
 
         
+    }
+}
+struct DiamondBackground: View {
+    var body: some View {
+        VStack {
+            Rectangle()
+                .fill(Color.green)
+                .frame(width: 250, height: 250, alignment: .center)
+                .rotationEffect(.degrees(45.0))
+        }
     }
 }
 
