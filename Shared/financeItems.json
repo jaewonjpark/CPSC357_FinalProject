@@ -1,0 +1,29 @@
+[
+    {
+        "id": "aa32jj887hhg55",
+        "name": "Magazine Subscription",
+        "source": "New York Times",
+        "description": "Paying for this magazine for literally no reason let's goo",
+        "amount": 3.99,
+        "type": "Expense"
+        
+    },
+    {
+        "id": "aa32jj887hh355",
+        "name": "Study Subscription",
+        "source": "Chegg",
+        "description": "hacks and cheat codes but for homework",
+        "amount": 14.95,
+        "type": "Expense"
+        
+    },
+    {
+        "id": "aa32jj187hhg55",
+        "name": "Shoveling Snow",
+        "source": "My Neighbor",
+        "description": "Sort of contract where I shovel snow for money on weekends",
+        "amount": 60.00,
+        "type": "Income"
+        
+    },
+]

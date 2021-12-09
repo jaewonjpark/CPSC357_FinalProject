@@ -21,6 +21,14 @@
 		AA8498BF2760053C00EF02E1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498BD2760053C00EF02E1 /* Item.swift */; };
 		AA8498C42760102C00EF02E1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498C32760102C00EF02E1 /* ItemData.swift */; };
 		AA8498C52760102C00EF02E1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498C32760102C00EF02E1 /* ItemData.swift */; };
+		AA8498CA27627DB000EF02E1 /* financeItems.json in Resources */ = {isa = PBXBuildFile; fileRef = AA8498C927627DB000EF02E1 /* financeItems.json */; };
+		AA8498CB27627DB000EF02E1 /* financeItems.json in Resources */ = {isa = PBXBuildFile; fileRef = AA8498C927627DB000EF02E1 /* financeItems.json */; };
+		AA8498CD2762878900EF02E1 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498CC2762878900EF02E1 /* ItemStore.swift */; };
+		AA8498CE2762878900EF02E1 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498CC2762878900EF02E1 /* ItemStore.swift */; };
+		AA8498D02762930B00EF02E1 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498CF2762930B00EF02E1 /* ItemView.swift */; };
+		AA8498D12762930B00EF02E1 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498CF2762930B00EF02E1 /* ItemView.swift */; };
+		AA8498D327629C3E00EF02E1 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498D227629C3E00EF02E1 /* MainApp.swift */; };
+		AA8498D427629C3E00EF02E1 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498D227629C3E00EF02E1 /* MainApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,10 @@
 		AA8498A72760042700EF02E1 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		AA8498BD2760053C00EF02E1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AA8498C32760102C00EF02E1 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		AA8498C927627DB000EF02E1 /* financeItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = financeItems.json; sourceTree = "<group>"; };
+		AA8498CC2762878900EF02E1 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		AA8498CF2762930B00EF02E1 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		AA8498D227629C3E00EF02E1 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +116,13 @@
 			isa = PBXGroup;
 			children = (
 				AA8498812760042400EF02E1 /* FinanceTrackerApp.swift */,
+				AA8498C927627DB000EF02E1 /* financeItems.json */,
 				AA8498822760042400EF02E1 /* ContentView.swift */,
+				AA8498D227629C3E00EF02E1 /* MainApp.swift */,
+				AA8498CF2762930B00EF02E1 /* ItemView.swift */,
 				AA8498C32760102C00EF02E1 /* ItemData.swift */,
 				AA8498BD2760053C00EF02E1 /* Item.swift */,
+				AA8498CC2762878900EF02E1 /* ItemStore.swift */,
 				AA8498832760042700EF02E1 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -275,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AD2760042700EF02E1 /* Assets.xcassets in Resources */,
+				AA8498CA27627DB000EF02E1 /* financeItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AE2760042700EF02E1 /* Assets.xcassets in Resources */,
+				AA8498CB27627DB000EF02E1 /* financeItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +326,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AB2760042700EF02E1 /* ContentView.swift in Sources */,
+				AA8498D02762930B00EF02E1 /* ItemView.swift in Sources */,
+				AA8498D327629C3E00EF02E1 /* MainApp.swift in Sources */,
 				AA8498BE2760053C00EF02E1 /* Item.swift in Sources */,
 				AA8498A92760042700EF02E1 /* FinanceTrackerApp.swift in Sources */,
+				AA8498CD2762878900EF02E1 /* ItemStore.swift in Sources */,
 				AA8498C42760102C00EF02E1 /* ItemData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,8 +340,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AC2760042700EF02E1 /* ContentView.swift in Sources */,
+				AA8498D12762930B00EF02E1 /* ItemView.swift in Sources */,
+				AA8498D427629C3E00EF02E1 /* MainApp.swift in Sources */,
 				AA8498BF2760053C00EF02E1 /* Item.swift in Sources */,
 				AA8498AA2760042700EF02E1 /* FinanceTrackerApp.swift in Sources */,
+				AA8498CE2762878900EF02E1 /* ItemStore.swift in Sources */,
 				AA8498C52760102C00EF02E1 /* ItemData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

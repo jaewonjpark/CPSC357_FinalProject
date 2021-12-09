@@ -7,12 +7,11 @@
 
 import Foundation
 import SwiftUI
-struct Item : Codable {
+struct Item : Codable, Identifiable{
+    var id: String
     var name: String
     var source: String
     var description: String
     var amount: Float
-    var creator: String
     var type: String
-    var imageName: String
 }
