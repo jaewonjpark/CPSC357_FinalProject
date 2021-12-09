@@ -66,7 +66,6 @@ struct MainApp: View {
             .navigationBarItems(leading: NavigationLink(destination: ContentView()) {
             Text("Add")
                     .padding()
-                    .center
             .foregroundColor(.white)
             .background(Color.green)
             .cornerRadius(10)
