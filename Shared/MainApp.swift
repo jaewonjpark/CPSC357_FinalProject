@@ -59,7 +59,7 @@ struct MainApp: View {
                 
             }
      
-            .navigationBarItems(leading: NavigationLink(destination: ContentView()) {
+            .navigationBarItems(leading: NavigationLink(destination: Add()) {
             Text("Add")
                     .padding()
             .foregroundColor(.white)
