@@ -101,7 +101,15 @@ struct MainApp: View {
     func moveIncomes(from source: IndexSet, to destination: Int) {
         itemStore.incomes.move(fromOffsets: source, toOffset: destination)
         print("\(itemStore.expenses)")
-
+    }
+    
+    func addIncomes()
+    {
+    
+    }
+    
+    func addExpenses()
+    {
         
     }
 }
