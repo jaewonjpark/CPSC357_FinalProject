@@ -53,11 +53,7 @@ struct MainApp: View {
                             }
                             Text("Total Expenses: + $\(String(sumItemAmounts(itemStore.incomes)))")
                         }
-                        
-                    
-                    
-                    
-                    
+                   
                     
                 }
                 
