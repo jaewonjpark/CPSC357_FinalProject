@@ -31,6 +31,8 @@
 		AA8498D427629C3E00EF02E1 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498D227629C3E00EF02E1 /* MainApp.swift */; };
 		AA8498D62765821B00EF02E1 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498D52765821A00EF02E1 /* AddItem.swift */; };
 		AA8498D72765821B00EF02E1 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498D52765821A00EF02E1 /* AddItem.swift */; };
+		AA8498D92767D7AB00EF02E1 /* yellowmoney.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8498D82767D7AA00EF02E1 /* yellowmoney.png */; };
+		AA8498DA2767D7AB00EF02E1 /* yellowmoney.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8498D82767D7AA00EF02E1 /* yellowmoney.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		AA8498CF2762930B00EF02E1 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		AA8498D227629C3E00EF02E1 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		AA8498D52765821A00EF02E1 /* AddItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
+		AA8498D82767D7AA00EF02E1 /* yellowmoney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowmoney.png; path = Assets.xcassets/yellowmoney.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 				AA8498BD2760053C00EF02E1 /* Item.swift */,
 				AA8498CC2762878900EF02E1 /* ItemStore.swift */,
 				AA8498832760042700EF02E1 /* Assets.xcassets */,
+				AA8498D82767D7AA00EF02E1 /* yellowmoney.png */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -295,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AD2760042700EF02E1 /* Assets.xcassets in Resources */,
+				AA8498D92767D7AB00EF02E1 /* yellowmoney.png in Resources */,
 				AA8498CA27627DB000EF02E1 /* financeItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8498AE2760042700EF02E1 /* Assets.xcassets in Resources */,
+				AA8498DA2767D7AB00EF02E1 /* yellowmoney.png in Resources */,
 				AA8498CB27627DB000EF02E1 /* financeItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

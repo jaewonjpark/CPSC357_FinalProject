@@ -4,8 +4,8 @@ struct ItemView: View {
     let selectedItem: Item
     var body: some View {
         Form {
-            Section(header: Text("Game Details")) {
-                Image(systemName: "1.circle")
+            Section(header: Text("Item Details")) {
+                Image("Monetization")
                     .resizable()
                     .cornerRadius(12.0)
                     .aspectRatio(contentMode: .fit)

@@ -75,6 +75,7 @@ struct MainApp: View {
         }
        
     }
+        //takes an array of Items and returns the sum of their amount fields
     func sumItemAmounts (_ array: [Item]) -> Float {
         var sum: Float = 0
         for item in array {
@@ -82,25 +83,28 @@ struct MainApp: View {
         }
         return sum
     }
-    
+    //deletes an item from the expenses array
     func deleteExpenses(at offsets: IndexSet) {
         itemStore.expenses.remove(atOffsets: offsets)
         print("\(itemStore.expenses)")
 
     }
+    //moves an item around the expenses array
     func moveExpenses(from source: IndexSet, to destination: Int) {
         itemStore.expenses.move(fromOffsets: source, toOffset: destination)
         print("\(itemStore.expenses)")
 
     }
+    //deletes an item from the incomes array
     func deleteIncomes(at offsets: IndexSet) {
         itemStore.incomes.remove(atOffsets: offsets)
-        print("\(itemStore.expenses)")
+        print("\(itemStore.incomes)")
 
     }
+    //moves an item around the incomes array
     func moveIncomes(from source: IndexSet, to destination: Int) {
         itemStore.incomes.move(fromOffsets: source, toOffset: destination)
-        print("\(itemStore.expenses)")
+        print("\(itemStore.incomes)")
     }
     
     func addIncomes()
@@ -140,6 +144,7 @@ struct ListCell: View {
                 Image(systemName: "1.circle")
                 Text(item.name)
                 Spacer()
+                //rounds amount to exactly two decimals
                 Text("$\(String(round(item.amount * 100.00) / 100.00).components(separatedBy: ".")[1].count < 2 ? String(round(item.amount * 100.00) / 100.00) + "0" : String(round(item.amount * 100.00) / 100.00))")
                     .foregroundColor(item.type == "Expense" ? .red : .green)
             }

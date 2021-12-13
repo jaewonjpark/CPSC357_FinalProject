@@ -15,7 +15,9 @@ struct AddItem: View
     @State private var source: String = ""
     @State private var description: String = ""
     @State private var type: Bool = false
-    @State private var isVis = false
+    @State private var isError = false
+    @State private var isNotFloat = false
+    @State private var isNotFilled = false
     
     var body: some View {
         Form {
@@ -34,10 +36,10 @@ struct AddItem: View
             Button(action: addNewItem) {
                 Text("Add Item")
             }
-            .alert(isPresented: $isVis) {
+            .alert(isPresented: $isError) {
                 Alert(
                     title: Text("Error!"),
-                    message: Text("Your inputted amount is not" + " a valid number.")
+                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : ""))
                 )
             
             }
@@ -45,6 +47,8 @@ struct AddItem: View
         
         }
     func addNewItem() {
+        isNotFilled = false
+        isNotFloat = false
         let newItem = Item(id: UUID().uuidString,
                          name: name,
                            source: source,
@@ -52,17 +56,30 @@ struct AddItem: View
                            amount: (Float(amount) != nil ? Float(amount)! : 0.00),
                            type: type ? "Income" : "Expense")
         if(Float(amount) != nil) {
-            if (type) {
-                
-                itemStore.incomes.append(newItem)
+            if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
+                isNotFilled = true
+                isError = true
             }
             else {
-                itemStore.expenses.append(newItem)
+                if (type) {
+                    
+                    itemStore.incomes.append(newItem)
+                }
+                else {
+                    itemStore.expenses.append(newItem)
 
+                }
             }
+            
+            
         }
         else {
-            isVis = true
+            if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
+                isNotFilled = true
+            }
+            
+            isNotFloat = true
+            isError = true
         }
         
     }
