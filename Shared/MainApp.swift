@@ -51,7 +51,7 @@ struct MainApp: View {
                                 .onDelete(perform: deleteIncomes)
                                 .onMove(perform: moveIncomes)
                             }
-                            Text("Total Income: - $\(String(sumItemAmounts(itemStore.incomes)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.incomes)) + "0" : String(sumItemAmounts(itemStore.incomes)))")
+                            Text("Total Income: + $\(String(sumItemAmounts(itemStore.incomes)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.incomes)) + "0" : String(sumItemAmounts(itemStore.incomes)))")
                         }
                    
                     

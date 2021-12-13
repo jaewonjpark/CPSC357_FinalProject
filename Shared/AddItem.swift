@@ -37,7 +37,7 @@ struct AddItem: View
             .alert(isPresented: $isVis) {
                 Alert(
                     title: Text("Error!"),
-                    message: Text("You are missing one or more information.")
+                    message: Text("Your inputted amount is not" + " a valid number.")
                 )
             
             }
