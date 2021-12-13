@@ -24,7 +24,7 @@ struct AddItem: View
                 DataInput(title: "Title", pholder: "e.g. Monthly Subscription", userInput: $name)
                 DataInput(title: "Source", pholder: "e.g. Times Magazine", userInput: $source)
                 DataInput(title: "Description", userInput: $description)
-                DataInput(title: "Amount", pholder: "23.12", userInput: $amount)
+                DataInput(title: "Amount", pholder: "e.g. 23.12", userInput: $amount)
      
 
                 Toggle(isOn: $type) {

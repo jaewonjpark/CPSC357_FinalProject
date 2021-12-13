@@ -33,7 +33,7 @@ struct MainApp: View {
                                 .onMove(perform: moveExpenses)
                                 
                             }
-                            Text("Total Expenses: - $\(String(sumItemAmounts(itemStore.expenses)))")
+                            Text("Total Expenses: - $\(String(sumItemAmounts(itemStore.expenses)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.expenses)) + "0" : String(sumItemAmounts(itemStore.expenses)))")
                             
                         }
                         
@@ -51,7 +51,7 @@ struct MainApp: View {
                                 .onDelete(perform: deleteIncomes)
                                 .onMove(perform: moveIncomes)
                             }
-                            Text("Total Expenses: + $\(String(sumItemAmounts(itemStore.incomes)))")
+                            Text("Total Income: - $\(String(sumItemAmounts(itemStore.incomes)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.incomes)) + "0" : String(sumItemAmounts(itemStore.incomes)))")
                         }
                    
                     
@@ -133,13 +133,14 @@ struct MainApp_Previews: PreviewProvider {
 
 struct ListCell: View {
     var item: Item
+    
     var body: some View {
         NavigationLink (destination: ItemView(selectedItem: item)) {
             HStack {
                 Image(systemName: "1.circle")
                 Text(item.name)
                 Spacer()
-                Text("$\(String(Float(round(item.amount * 100) / 100)))")
+                Text("$\(String(round(item.amount * 100.00) / 100.00).components(separatedBy: ".")[1].count < 2 ? String(round(item.amount * 100.00) / 100.00) + "0" : String(round(item.amount * 100.00) / 100.00))")
                     .foregroundColor(item.type == "Expense" ? .red : .green)
             }
         }
