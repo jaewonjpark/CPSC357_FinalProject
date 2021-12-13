@@ -5,7 +5,7 @@ struct ItemView: View {
     var body: some View {
         Form {
             Section(header: Text("Item Details")) {
-                Image("Monetization")
+                Image(selectedItem.type == "Income" ? "Monetization" : "YellowMoney")
                     .resizable()
                     .cornerRadius(12.0)
                     .aspectRatio(contentMode: .fit)
