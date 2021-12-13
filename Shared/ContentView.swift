@@ -33,12 +33,13 @@ struct ContentView: View {
 }
 struct DataInput: View {
     var title: String
+    var pholder: String?
     @Binding var userInput: String
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading) {
             Text(title)
                 .font(.headline)
-            TextField("Enter \(title)", text: $userInput)
+            TextField((pholder != nil) ? pholder! : "Enter \(title)", text: $userInput)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         .padding()

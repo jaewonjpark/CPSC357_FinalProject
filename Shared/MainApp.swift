@@ -59,8 +59,8 @@ struct MainApp: View {
                 
             }
      
-            .navigationBarItems(leading: NavigationLink(destination: Add()) {
-            Text("Add")
+            .navigationBarItems(leading: NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
+            Text("Add New Item")
                     .padding()
             .foregroundColor(.white)
             .background(Color.green)
@@ -139,7 +139,7 @@ struct ListCell: View {
                 Image(systemName: "1.circle")
                 Text(item.name)
                 Spacer()
-                Text("$\(String(item.amount))")
+                Text("$\(String(Float(round(item.amount * 100) / 100)))")
                     .foregroundColor(item.type == "Expense" ? .red : .green)
             }
         }
