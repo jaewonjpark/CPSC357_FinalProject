@@ -23,6 +23,7 @@ struct MainApp: View {
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
                     Text("My Account Overview")
                         .padding(0)
+                        .foregroundColor(.green)
                 }
                 
                 NavigationView {
@@ -67,21 +68,22 @@ struct MainApp: View {
                     
                 }
          
-                .navigationBarItems(leading: NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
-                Text("Add New Item")
-                        .padding()
-                .foregroundColor(.white)
-                .background(Color.green)
-                .cornerRadius(10)
-                
-                
-                }, trailing: EditButton()
+                .navigationBarItems(leading: EditButton()
                                         .padding()
                                         .foregroundColor(.green)
                                         .overlay(RoundedRectangle(cornerRadius: 10)
                                                     .stroke(lineWidth: 3)
                                                     .foregroundColor(.green)
-                                                    .frame(width: 65, height: 50))
+                                                    .frame(width: 65, height: 50)), trailing:
+                                    NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
+                                    Text("Add New Item")
+                                        .fontWeight(.bold)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Color.green)
+                                        .cornerRadius(10)
+                                    
+                        }
                 )
 
                 
