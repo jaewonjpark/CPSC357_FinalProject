@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct MainApp: View {
-    let username: String
-    @StateObject private var itemStore : ItemStore = ItemStore(expenses: expenseData, incomes: incomeData)
+    let username: String //username from ContentView
+    @StateObject private var itemStore : ItemStore = ItemStore(expenses: expenseData, incomes: incomeData) //taken from ItemStore.swift
     
     var body: some View {
         NavigationView {
             VStack {
+                //welcome message
                 Text("Welcome \(username) to Monthly Money")
                     .font(.title2)
                     .padding(0)
+                //go to account overview with summary information
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
                     Text("My Account Overview")
                         .padding(0)
@@ -115,16 +117,7 @@ struct MainApp: View {
     
 
 }
-struct DiamondBackground: View {
-    var body: some View {
-        VStack {
-            Rectangle()
-                .fill(Color.green)
-                .frame(width: 250, height: 250, alignment: .center)
-                .rotationEffect(.degrees(45.0))
-        }
-    }
-}
+
 
 
 struct MainApp_Previews: PreviewProvider {
