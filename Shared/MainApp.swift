@@ -76,7 +76,7 @@ struct MainApp: View {
                 
                 }, trailing: EditButton()
                                         .padding()
-                                        .foregroundColor(.blue)            )
+                                        .foregroundColor(.blue))
 
                 
             }
