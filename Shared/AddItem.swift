@@ -69,6 +69,7 @@ struct AddItem: View
                     itemStore.expenses.append(newItem)
 
                 }
+                itemStore.allItems.append(newItem)
             }
             
             

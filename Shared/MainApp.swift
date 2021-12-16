@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainApp: View {
     let username: String //username from ContentView
-    @StateObject private var itemStore : ItemStore = ItemStore(expenses: expenseData, incomes: incomeData) //taken from ItemStore.swift
+    @StateObject private var itemStore : ItemStore = ItemStore(allItems: itemData, expenses: expenseData, incomes: incomeData) //taken from ItemStore.swift
     
     var body: some View {
         NavigationView {
