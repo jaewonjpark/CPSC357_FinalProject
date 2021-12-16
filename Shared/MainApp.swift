@@ -18,10 +18,13 @@ struct MainApp: View {
                 //welcome message
                 Text("Welcome \(username) to Monthly Money Tracker")
                     .font(.title2)
-                    .padding(0)
+                    .padding(1)
                 //go to account overview with summary information
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
-                    Text("My Account Overview")
+                    Text("View Account Summary")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .underline()
                         .padding(0)
                         .foregroundColor(.green)
                 }
