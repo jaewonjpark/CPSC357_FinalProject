@@ -9,24 +9,64 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var username: String = ""
+    @State private var reverse = false
+    @State private var amount: Float = 0
     var body: some View {
-        VStack {
-            NavigationView {
-                VStack {
-                    Text("Financial Tracking App")
-                        .font(.largeTitle)
-                    Text("Enter your name:")
-                        .font(.title3)
-                    DataInput(title: "Name", userInput: $username)
-                    NavigationLink(destination: MainApp(username: self.username)) {
-                        Text("Continue")
-                            .foregroundColor(.green)
+        let tap = TapGesture()
+            .onEnded { _ in
+                if(reverse) {
+                    amount -= 0.05
+                    if(amount <= 0) {
+                        reverse = false
                     }
+                }
+                else {
+                    amount += 0.05
+                    if(amount >= 0.5) {
+                        reverse = true
+                    }
+                }
+            }
+        
+            
+            VStack {
+                NavigationView {
+                    VStack {
+                        
+                        Text("Monthly Money")
+                            .font(.largeTitle)
+                        Text("Financial Tracking App")
+                            .font(.title3)
+                            .padding(.bottom)
+                        ZStack {
+                            Image("Monetization")
+                                .resizable()
+                                .frame(width: 160, height: 130)
+                                .opacity(Double(amount))
+                            Circle()
+                                .stroke(lineWidth: 10)
+                                .foregroundColor(.green)
+                                .frame(width: 180, height: 140)
+                        }
+                        
+                        Text("Enter your name:")
+                            .font(.headline)
+                            .padding(.top)
+                        DataInput(title: "Name", userInput: $username)
+                        NavigationLink(destination: MainApp(username: self.username)) {
+                            Text("Continue")
+                                .foregroundColor(.green)
+                        }
+                    }
+                    
                 }
                 
             }
+            .gesture(tap)
             
-        }
+            
+        
+        
         
         
     }

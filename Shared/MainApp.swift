@@ -12,66 +12,72 @@ struct MainApp: View {
     @StateObject private var itemStore : ItemStore = ItemStore(expenses: expenseData, incomes: incomeData)
     
     var body: some View {
-        VStack {
-            Text("Welcome \(username)")
-                .font(.largeTitle)
-            
-            NavigationView {
-                VStack {
-                   
-                   
-                        //List of expense items
-                        VStack (spacing: 0) {
-                            
-                            List {
-                                Text("Expenses")
-                                    .font(.title2)
-                                ForEach (itemStore.expenses) { expense in
-                                    ListCell(item: expense)
-                                }
-                                .onDelete(perform: deleteExpenses)
-                                .onMove(perform: moveExpenses)
-                                
-                            }
-                            Text("Total Expenses: - $\(String(sumItemAmounts(itemStore.expenses)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.expenses)) + "0" : String(sumItemAmounts(itemStore.expenses)))")
-                            
-                        }
-                        
-                    
-                   
-                        //List for income items
-                        VStack {
-                            
-                            List {
-                                Text("Incomes")
-                                    .font(.title2)
-                                ForEach (itemStore.incomes) { income in
-                                    ListCell(item: income)
-                                }
-                                .onDelete(perform: deleteIncomes)
-                                .onMove(perform: moveIncomes)
-                            }
-                            Text("Total Income: + $\(String(sumItemAmounts(itemStore.incomes)).components(separatedBy: ".")[1].count < 2 ? String(sumItemAmounts(itemStore.incomes)) + "0" : String(sumItemAmounts(itemStore.incomes)))")
-                        }
-                   
-                    
+        NavigationView {
+            VStack {
+                Text("Welcome \(username) to MonthlyMoney")
+                    .font(.title3)
+                    .padding(0)
+                NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
+                    Text("My Account Overview")
+                        .padding(0)
                 }
                 
-            }
-     
-            .navigationBarItems(leading: NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
-            Text("Add New Item")
-                    .padding()
-            .foregroundColor(.white)
-            .background(Color.green)
-            .cornerRadius(10)
-            
-            
-            }, trailing: EditButton()
-                                    .padding()
-                                    .foregroundColor(.blue)            )
+                NavigationView {
+                    VStack {
+                       
+                        
+                            //List of expense items
+                            VStack (spacing: 0) {
+                                
+                                List {
+                                    Text("Expenses")
+                                        .font(.title2)
+                                    ForEach (itemStore.expenses) { expense in
+                                        ListCell(item: expense)
+                                    }
+                                    .onDelete(perform: deleteExpenses)
+                                    .onMove(perform: moveExpenses)
+                                    
+                                }
+                                                            
+                            }
+                            
+                        
+                       
+                            //List for income items
+                            VStack {
+                                
+                                List {
+                                    Text("Incomes")
+                                        .font(.title2)
+                                    ForEach (itemStore.incomes) { income in
+                                        ListCell(item: income)
+                                    }
+                                    .onDelete(perform: deleteIncomes)
+                                    .onMove(perform: moveIncomes)
+                                }
+                               
+                            }
+                       
+                        
+                    }
+                    
+                }
+         
+                .navigationBarItems(leading: NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
+                Text("Add New Item")
+                        .padding()
+                .foregroundColor(.white)
+                .background(Color.green)
+                .cornerRadius(10)
+                
+                
+                }, trailing: EditButton()
+                                        .padding()
+                                        .foregroundColor(.blue)            )
 
-            
+                
+            }
         }
        
     }
@@ -107,15 +113,7 @@ struct MainApp: View {
         print("\(itemStore.incomes)")
     }
     
-    func addIncomes()
-    {
-    
-    }
-    
-    func addExpenses()
-    {
-        
-    }
+
 }
 struct DiamondBackground: View {
     var body: some View {
