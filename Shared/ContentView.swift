@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View
+{
+    //Store a local state to a view layout
     @State private var username: String = ""
     @State private var reverse = false
     @State private var amount: Float = 0
     var body: some View {
+        //Tap gesture for our logo
+        //Continue tapping for fade in and out
         let tap = TapGesture()
             .onEnded { _ in
                 if(reverse) {

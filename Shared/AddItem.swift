@@ -41,9 +41,10 @@ struct AddItem: View
                 Text("Add Item")
             }
             .alert(isPresented: $isError) {
+                // Alert when amount value is not number
                 Alert(
                     title: Text("Error!"),
-                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : ""))
+                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : "")) //Alert if one or more fields empty
                 )
             
             }
