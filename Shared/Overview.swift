@@ -11,34 +11,49 @@ struct Overview: View {
     let total_expenses: Float
     let total_incomes: Float
     var body: some View {
-        VStack {
-            Text("Account Overview")
-                .foregroundColor(.green)
-                .font(.title)
-                .padding(.bottom)
-            Text("Total Income: $\(roundF2S(total_incomes))")
-                .padding()
-            Text("Total Expenses: $\(roundF2S(total_expenses))")
-                .padding()
-            Text("Total Monthly Net: $\(roundF2S(net_balance(total_incomes, total_expenses)))")
-                .foregroundColor(returnColor(net_balance(total_incomes, total_expenses)))
-                .fontWeight(.bold)
-                .padding()
+        ZStack {
+            VStack {
+                Text("Account Overview")
+                    .foregroundColor(.green)
+                    .font(.title)
+                    .padding(.bottom)
+                Text("Total Income: $\(roundF2S(total_incomes))")
+                    .padding()
+                Text("Total Expenses: $\(roundF2S(total_expenses))")
+                    .padding()
+                Text("Total Monthly Net: $\(roundF2S(net_balance(total_incomes, total_expenses)))")
+                    .foregroundColor(returnColor(net_balance(total_incomes, total_expenses)))
+                    .fontWeight(.bold)
+                    .padding()
+                    
+                Text(returnStmnt(net_balance(total_incomes, total_expenses)))
+                    .padding(.horizontal, 25.0)
+                    .multilineTextAlignment(.center)
+                    
                 
-            Text(returnStmnt(net_balance(total_incomes, total_expenses)))
-                .font(.title2)
-                .padding()
+                    
                 
-            
-            
+                    
+                
+                
+                    
+                
+                    
+                
+                
+            }
+            .padding(.horizontal, 25.0)
+            Image("IPHONE")
+                .opacity(net_balance(total_incomes, total_expenses) == 0 ? 0.25 : 0)
         }
+        
     }
     /*based on the amount if it is postive then turns green, if the amount is zero it turns yellow, if it is negative it turns red*/
     func returnColor(_ total: Float) -> Color {
         return total > 0 ? .green : (total < 0 ? .red : .yellow)
     }
     func returnStmnt(_ total: Float) -> String {
-        return total > 0 ? "Congratulations! You are bringing in a take-home of $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) each month. You are properly managing your expenses to keep them under your income, keep up the great work!" : (total < 0 ? "You have a net loss of $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) per month, it is highly recommended to drop some expenses as soon as possible to avoid losing more money!" : "You have a zero net gain/loss. While you are not losing money, you are also not making any. It is recommended to drop a few expenses or find more income sources to rise to a positive net gain.")
+        return total > 0 ? "Congratulations! You are bringing in a take-home of\n $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) each month. \nYou are properly managing your expenses to \nkeep them under your income, keep up \nthe great work!" : (total < 0 ? "You have a net loss of $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) per month, it is highly recommended to drop \nsome expenses as soon as possible to \navoid losing more money!" : "You have a zero net gain/loss. \nWhile you are not losing money, \nyou are also not making any. \nIt is recommended to drop a few expenses or \nfind more income sources to rise to a positive net gain.")
     }
     /*it makes it 2 decimal points, it rounds up*/
     func roundF2S(_ value: Float) -> String {

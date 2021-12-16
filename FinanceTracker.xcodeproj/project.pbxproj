@@ -35,6 +35,8 @@
 		AA8498DA2767D7AB00EF02E1 /* yellowmoney.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8498D82767D7AA00EF02E1 /* yellowmoney.png */; };
 		AA8498DC276AA7F400EF02E1 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498DB276AA7F300EF02E1 /* Overview.swift */; };
 		AA8498DD276AA7F400EF02E1 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8498DB276AA7F300EF02E1 /* Overview.swift */; };
+		AA8498DF276BF05700EF02E1 /* IPHONE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8498DE276BF05500EF02E1 /* IPHONE.jpg */; };
+		AA8498E0276BF05800EF02E1 /* IPHONE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8498DE276BF05500EF02E1 /* IPHONE.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,7 @@
 		AA8498D52765821A00EF02E1 /* AddItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		AA8498D82767D7AA00EF02E1 /* yellowmoney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowmoney.png; path = Assets.xcassets/yellowmoney.png; sourceTree = "<group>"; };
 		AA8498DB276AA7F300EF02E1 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		AA8498DE276BF05500EF02E1 /* IPHONE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IPHONE.jpg; path = Assets.xcassets/IPHONE.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,7 @@
 				AA8498822760042400EF02E1 /* ContentView.swift */,
 				AA8498D227629C3E00EF02E1 /* MainApp.swift */,
 				AA8498D52765821A00EF02E1 /* AddItem.swift */,
+				AA8498DE276BF05500EF02E1 /* IPHONE.jpg */,
 				AA8498DB276AA7F300EF02E1 /* Overview.swift */,
 				AA8498CF2762930B00EF02E1 /* ItemView.swift */,
 				AA8498C32760102C00EF02E1 /* ItemData.swift */,
@@ -302,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8498DF276BF05700EF02E1 /* IPHONE.jpg in Resources */,
 				AA8498AD2760042700EF02E1 /* Assets.xcassets in Resources */,
 				AA8498D92767D7AB00EF02E1 /* yellowmoney.png in Resources */,
 				AA8498CA27627DB000EF02E1 /* financeItems.json in Resources */,
@@ -312,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8498E0276BF05800EF02E1 /* IPHONE.jpg in Resources */,
 				AA8498AE2760042700EF02E1 /* Assets.xcassets in Resources */,
 				AA8498DA2767D7AB00EF02E1 /* yellowmoney.png in Resources */,
 				AA8498CB27627DB000EF02E1 /* financeItems.json in Resources */,
