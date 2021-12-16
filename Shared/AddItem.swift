@@ -39,7 +39,12 @@ struct AddItem: View
             }
             Button(action: addNewItem) {
                 Text("Add Item")
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
             }
+            .padding(.leading, 125.0)
+            
+            
             .alert(isPresented: $isError) {
                 // Alert when amount value is not number
                 Alert(

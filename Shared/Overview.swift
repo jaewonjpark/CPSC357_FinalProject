@@ -13,7 +13,7 @@ struct Overview: View {
     var body: some View {
         VStack {
             Text("Account Overview")
-                .foregroundColor(.blue)
+                .foregroundColor(.green)
                 .font(.title)
                 .padding(.bottom)
             Text("Total Income: $\(roundF2S(total_incomes))")
