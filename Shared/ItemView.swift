@@ -5,6 +5,7 @@ struct ItemView: View {
     var body: some View {
         Form {
             Section(header: Text("Item Details")) {
+                //Different images for incomes and expenses page
                 Image(selectedItem.type == "Income" ? "Monetization" : "YellowMoney")
                     .resizable()
                     .cornerRadius(12.0)

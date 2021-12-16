@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+struct StoreItems: Encodable, Decodable {
+    var storedItems: [Item]
+}
+
 struct AddItem: View
 {
     @StateObject var itemStore: ItemStore
@@ -35,11 +39,17 @@ struct AddItem: View
             }
             Button(action: addNewItem) {
                 Text("Add Item")
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
             }
+            .padding(.leading, 125.0)
+            
+            
             .alert(isPresented: $isError) {
+                // Alert when amount value is not number
                 Alert(
                     title: Text("Error!"),
-                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : ""))
+                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : "")) //Alert if one or more fields empty
                 )
             
             }
@@ -54,7 +64,7 @@ struct AddItem: View
                            source: source,
                            description: description,
                            amount: (Float(amount) != nil ? Float(amount)! : 0.00),
-                           type: type ? "Income" : "Expense")
+                           type: type ? "Income" : "Expens")
         if(Float(amount) != nil) {
             if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
                 isNotFilled = true
@@ -70,6 +80,7 @@ struct AddItem: View
 
                 }
                 itemStore.allItems.append(newItem)
+                //storeItems()
             }
             
             
@@ -84,6 +95,19 @@ struct AddItem: View
         }
         
     }
+    func storeItems() {
+        if let encodedData = try? JSONEncoder().encode(StoreItems(storedItems: itemStore.allItems)) {
+            let path = "./storedItems.json"
+            let pathAsURL = URL(fileURLWithPath: path)
+            do {
+                try encodedData.write(to: pathAsURL)
+            }
+            catch {
+                print("Failed to write JSON data: \(error.localizedDescription)")
+            }
+        }
+        
+    }
 }
 
 
@@ -91,7 +115,7 @@ struct AddItem_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        AddItem(itemStore: ItemStore(expenses: expenseData, incomes: incomeData))
+        AddItem(itemStore: ItemStore(allItems: itemData, expenses: expenseData, incomes: incomeData))
     }
 }
 

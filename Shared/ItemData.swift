@@ -8,14 +8,33 @@
 import Foundation
 import UIKit
 import SwiftUI
-var itemData: [Item] = loadJson("financeItems.json")
+var itemData: [Item] = loadJson("storedItems.json", "financeItems.json")
 var expenseData: [Item] = branchItems(itemData, matcher: "Expense")
 var incomeData: [Item] = branchItems(itemData, matcher: "Income")
-func loadJson<T: Decodable>(_ filename: String) -> T {
+func loadJson<T: Decodable>(_ filename: String, _ defaultname: String) -> T {
     let data: Data
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
     else {
-        fatalError("\(filename) not found.")
+        
+        //fatalError("\(filename) not found.")
+        guard let file1 = Bundle.main.url(forResource: defaultname, withExtension: nil)
+        else {
+            
+            fatalError("\(filename) and \(defaultname) not found.")
+        }
+        
+        do {
+            data = try Data(contentsOf: file1)
+            
+        } catch {
+            fatalError("Could not load \(defaultname): \(error)")
+        }
+        
+        do {
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            fatalError("Unable to parse \(defaultname): \(error)")
+        }
     }
     
     do {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MainApp: View {
     let username: String //username from ContentView
     @StateObject private var itemStore : ItemStore = ItemStore(allItems: itemData, expenses: expenseData, incomes: incomeData) //taken from ItemStore.swift
@@ -15,13 +16,17 @@ struct MainApp: View {
         NavigationView {
             VStack {
                 //welcome message
-                Text("Welcome \(username) to Monthly Money")
+                Text("Welcome \(username) to Monthly Money Tracker")
                     .font(.title2)
-                    .padding(0)
+                    .padding(1)
                 //go to account overview with summary information
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
-                    Text("My Account Overview")
+                    Text("View Account Summary")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .underline()
                         .padding(0)
+                        .foregroundColor(.green)
                 }
                 
                 NavigationView {
@@ -66,17 +71,23 @@ struct MainApp: View {
                     
                 }
          
-                .navigationBarItems(leading: NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
-                Text("Add New Item")
-                        .padding()
-                .foregroundColor(.white)
-                .background(Color.green)
-                .cornerRadius(10)
-                
-                
-                }, trailing: EditButton()
+                .navigationBarItems(leading: EditButton()
                                         .padding()
-                                        .foregroundColor(.blue))
+                                        .foregroundColor(.green)
+                                        .overlay(RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(lineWidth: 3)
+                                                    .foregroundColor(.green)
+                                                    .frame(width: 65, height: 50)), trailing:
+                                    NavigationLink(destination: AddItem(itemStore: self.itemStore)) {
+                                    Text("Add New Item")
+                                        .fontWeight(.bold)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Color.green)
+                                        .cornerRadius(10)
+                                    
+                        }
+                )
 
                 
             }
@@ -114,6 +125,7 @@ struct MainApp: View {
         itemStore.incomes.move(fromOffsets: source, toOffset: destination)
         print("\(itemStore.incomes)")
     }
+    
     
 
 }
