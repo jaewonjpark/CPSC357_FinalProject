@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MainApp: View {
     let username: String //username from ContentView
     @StateObject private var itemStore : ItemStore = ItemStore(allItems: itemData, expenses: expenseData, incomes: incomeData) //taken from ItemStore.swift
@@ -15,7 +16,7 @@ struct MainApp: View {
         NavigationView {
             VStack {
                 //welcome message
-                Text("Welcome \(username) to Monthly Money")
+                Text("Welcome \(username) to Monthly Money Tracker")
                     .font(.title2)
                     .padding(0)
                 //go to account overview with summary information
@@ -114,6 +115,7 @@ struct MainApp: View {
         itemStore.incomes.move(fromOffsets: source, toOffset: destination)
         print("\(itemStore.incomes)")
     }
+    
     
 
 }

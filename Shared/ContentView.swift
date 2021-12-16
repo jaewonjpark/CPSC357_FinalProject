@@ -56,6 +56,11 @@ struct ContentView: View {
                         NavigationLink(destination: MainApp(username: self.username)) {
                             Text("Continue")
                                 .foregroundColor(.green)
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 3)
+                                            .foregroundColor(.green)
+                                            .frame(width: 90, height: 40))
+                                
                         }
                     }
                     

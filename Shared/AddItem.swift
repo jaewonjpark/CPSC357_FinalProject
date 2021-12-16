@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+struct StoreItems: Encodable, Decodable {
+    var storedItems: [Item]
+}
+
 struct AddItem: View
 {
     @StateObject var itemStore: ItemStore
@@ -70,6 +74,7 @@ struct AddItem: View
 
                 }
                 itemStore.allItems.append(newItem)
+                //storeItems()
             }
             
             
@@ -84,6 +89,19 @@ struct AddItem: View
         }
         
     }
+    func storeItems() {
+        if let encodedData = try? JSONEncoder().encode(StoreItems(storedItems: itemStore.allItems)) {
+            let path = "./storedItems.json"
+            let pathAsURL = URL(fileURLWithPath: path)
+            do {
+                try encodedData.write(to: pathAsURL)
+            }
+            catch {
+                print("Failed to write JSON data: \(error.localizedDescription)")
+            }
+        }
+        
+    }
 }
 
 
@@ -91,7 +109,7 @@ struct AddItem_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        AddItem(itemStore: ItemStore(expenses: expenseData, incomes: incomeData))
+        AddItem(itemStore: ItemStore(allItems: itemData, expenses: expenseData, incomes: incomeData))
     }
 }
 
