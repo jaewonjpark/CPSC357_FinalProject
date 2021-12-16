@@ -14,8 +14,8 @@ struct MainApp: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Welcome \(username) to MonthlyMoney")
-                    .font(.title3)
+                Text("Welcome \(username) to Monthly Money")
+                    .font(.title2)
                     .padding(0)
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
                     Text("My Account Overview")

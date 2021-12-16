@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
                 else {
                     amount += 0.05
-                    if(amount >= 0.5) {
+                    if(amount >= 1) {
                         reverse = true
                     }
                 }
@@ -44,9 +44,9 @@ struct ContentView: View {
                                 .frame(width: 160, height: 130)
                                 .opacity(Double(amount))
                             Circle()
-                                .stroke(lineWidth: 10)
+                                .stroke(lineWidth: 15)
                                 .foregroundColor(.green)
-                                .frame(width: 180, height: 140)
+                                .frame(width: 190, height: 135)
                         }
                         
                         Text("Enter your name:")
