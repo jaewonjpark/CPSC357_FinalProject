@@ -77,7 +77,12 @@ struct MainApp: View {
                 
                 }, trailing: EditButton()
                                         .padding()
-                                        .foregroundColor(.blue)            )
+                                        .foregroundColor(.green)
+                                        .overlay(RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(lineWidth: 3)
+                                                    .foregroundColor(.green)
+                                                    .frame(width: 65, height: 50))
+                )
 
                 
             }
