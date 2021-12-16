@@ -64,7 +64,7 @@ struct AddItem: View
                            source: source,
                            description: description,
                            amount: (Float(amount) != nil ? Float(amount)! : 0.00),
-                           type: type ? "Income" : "Expense")
+                           type: type ? "Income" : "Expens")
         if(Float(amount) != nil) {
             if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
                 isNotFilled = true
