@@ -36,15 +36,6 @@ struct Overview: View {
                     .multilineTextAlignment(.center)
                     
                 
-                    
-                
-                    
-                
-                
-                    
-                
-                    
-                
                 
             }
             .padding(.horizontal, 25.0)
@@ -59,7 +50,7 @@ struct Overview: View {
     }
     // returns a different statement based on the total net, as well as the net return if applicable
     func returnStmnt(_ total: Float) -> String {
-        return total > 0 ? "Congratulations! You are bringing in a take-home of\n $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) each month. \nYou are properly managing your expenses to \nkeep them under your income, keep up \nthe great work!" : (total < 0 ? "You have a net loss of $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) per month, it is highly recommended to drop \nsome expenses as soon as possible to \navoid losing more money!" : "You have a zero net gain/loss. \nWhile you are not losing money, \nyou are also not making any. \nIt is recommended to drop a few expenses or \nfind more income sources to rise to a positive net gain.")
+        return total > 0 ? "Congratulations! You are bringing in a take-home of\n $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) each month. \nYou are properly managing your expenses to \nkeep them under your income, keep up \nthe great work!" : (total < 0 ? "You have a net loss of $\(String(roundF2S(net_balance(total_incomes, total_expenses)))) per month, \nit is highly recommended to drop \nsome expenses as soon as possible to \navoid losing more money!" : "You have a zero net gain/loss. \nWhile you are not losing money, \nyou are also not making any. \nIt is recommended to drop a few expenses or \nfind more income sources to \nrise to a positive net gain.")
     }
     // rounds a float to the nearest cent (hundredth)
     func roundF2S(_ value: Float) -> String {
