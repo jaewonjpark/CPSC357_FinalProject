@@ -22,7 +22,7 @@ struct MainApp: View {
                 //go to account overview with summary information
                 NavigationLink(destination: Overview(total_expenses: sumItemAmounts(itemStore.expenses), total_incomes: sumItemAmounts(itemStore.incomes))) {
                     Text("View Account Summary")
-                        .font(.title2)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .underline()
                         .padding(0)
@@ -70,7 +70,7 @@ struct MainApp: View {
                     }
                     
                 }
-         
+         //edit and add buttons for list
                 .navigationBarItems(leading: EditButton()
                                         .padding()
                                         .foregroundColor(.green)

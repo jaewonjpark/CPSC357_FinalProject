@@ -13,7 +13,7 @@ class ItemStore : ObservableObject {
 
     @Published var expenses: [Item]
     @Published var incomes: [Item]
-    
+    //contains the three publicly accessible arrays
     init (allItems: [Item] = [], expenses: [Item] = [], incomes: [Item] = []) {
         self.allItems = allItems
         self.expenses = expenses

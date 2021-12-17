@@ -26,13 +26,13 @@ struct AddItem: View
     var body: some View {
         Form {
             Section(header: Text("Item Details")) {
-                
+                //data inputs for name, source, description, and amount of financial item
                 DataInput(title: "Title", pholder: "e.g. Monthly Subscription", userInput: $name)
                 DataInput(title: "Source", pholder: "e.g. Times Magazine", userInput: $source)
                 DataInput(title: "Description", userInput: $description)
                 DataInput(title: "Amount", pholder: "e.g. 23.12", userInput: $amount)
      
-
+                //toggles whether new item is income or expense
                 Toggle(isOn: $type) {
                     Text("Source of income?").font(.headline)
                 }.padding()
@@ -46,16 +46,17 @@ struct AddItem: View
             
             
             .alert(isPresented: $isError) {
-                // Alert when amount value is not number
+                // Alert when amount value is not number or if one or more fields empty
+
                 Alert(
                     title: Text("Error!"),
-                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : "")) //Alert if one or more fields empty
-                )
+                    message: Text((isNotFloat ? "Your inputted amount is not a valid number.\n" : "") + (isNotFilled ? "You are missing one of more fields." : ""))                 )
             
             }
         }
         
         }
+    //performs error handling and adds item to appropriate list
     func addNewItem() {
         isNotFilled = false
         isNotFloat = false
@@ -66,6 +67,7 @@ struct AddItem: View
                            amount: (Float(amount) != nil ? Float(amount)! : 0.00),
                            type: type ? "Income" : "Expense")
         if(Float(amount) != nil) {
+            //handles error when one or more fields are blank
             if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
                 isNotFilled = true
                 isError = true
@@ -86,6 +88,7 @@ struct AddItem: View
             
         }
         else {
+            //handles error when amount is not a float, as well as if one or more fields are blank
             if (name.count == 0 || source.count == 0 || description.count == 0 || String(amount).count == 0) {
                 isNotFilled = true
             }
@@ -95,6 +98,7 @@ struct AddItem: View
         }
         
     }
+    //failed function to store data in a JSON for data persistence
     func storeItems() {
         if let encodedData = try? JSONEncoder().encode(StoreItems(storedItems: itemStore.allItems)) {
             let path = "./storedItems.json"

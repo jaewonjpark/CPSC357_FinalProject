@@ -43,6 +43,7 @@ struct ContentView: View
                             .font(.title3)
                             .padding(.bottom)
                         ZStack {
+                            //our logo
                             Image("Monetization")
                                 .resizable()
                                 .frame(width: 160, height: 130)
@@ -82,6 +83,7 @@ struct ContentView: View
 }
 struct DataInput: View {
     var title: String
+    //modified DataInput to allow for a custom placeholder message, as well as a default if none is provided
     var pholder: String?
     @Binding var userInput: String
     var body: some View {

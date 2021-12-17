@@ -15,6 +15,7 @@ func loadJson<T: Decodable>(_ filename: String, _ defaultname: String) -> T {
     let data: Data
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
     else {
+        //failed attempt to read from alternative data file, MacBook memory is Read Only :c
         
         //fatalError("\(filename) not found.")
         guard let file1 = Bundle.main.url(forResource: defaultname, withExtension: nil)
@@ -51,6 +52,8 @@ func loadJson<T: Decodable>(_ filename: String, _ defaultname: String) -> T {
     }
     
 }
+// iterates through all items from the JSON and adds them to either incomes or
+// expenses array depending on their type attribute
 func branchItems(_ itemList: [Item], matcher: String) -> [Item] {
     var myArray: [Item] = []
     for item in itemList {
